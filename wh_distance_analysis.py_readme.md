@@ -1,11 +1,12 @@
 ﻿# wh_distance_analysis.py
 
-Source: groups\WH\wh_distance_analysis.py
+Source: Slit_temp\WH\wh_distance_analysis.py
 
-Purpose: Measures the WH distance for either a direct atom pair or the minimum distance from one atom to heavy atoms in another residue.
-Usage: python wh_distance_analysis.py --model 2042
-Inputs: Model-specific trajectory paths and MDTraj atom-selection queries in CONFIGS.
-Calculation: Loads the topology, selects atoms, computes distances in chunks, filters the 20-60 ns window with a full-trajectory fallback, and calculates summary statistics.
-Output: Writes WH_<model>.txt and distance_vs_time_<model>.png.
+Purpose: Runs the WH distance analysis in either direct pair mode or minimum-heavy-atom mode.
+Usage: `python wh_distance_analysis.py --model 2042` or `python wh_distance_analysis.py --model 2042f`.
+Inputs: Trajectory paths and MDTraj atom-selection queries in `CONFIGS`.
+Calculation: Selects atoms, calculates distances in chunks, filters the 20-60 ns interval with a full-trajectory fallback, and summarizes the distribution.
+Output: `WH_<model>.txt` and `distance_vs_time_<model>.png`.
 
-The script is organized into explicit input, calculation, and output sections where applicable.
+The Python scripts are organized into explicit input, calculation, and output sections where applicable.
+Documentation follows the section-oriented style used by established Python repositories such as https://github.com/pandas-dev/pandas.

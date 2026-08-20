@@ -9,10 +9,6 @@ import numpy as np
 ROOT = Path(r"E:\Desktop\research\MD\slit")
 WORK_DIR = Path(__file__).resolve().parent
 
-# -----------------------------------------------------------------------------
-# INPUT CONFIGURATION
-# -----------------------------------------------------------------------------
-
 MODELS = {
     "1ayg": {
         "pdb_path": ROOT / "EPR_angle" / "1ayg.pdb",
@@ -39,10 +35,6 @@ MODELS = {
         "title": "c551_60",
     },
 }
-
-# -----------------------------------------------------------------------------
-# CALCULATION
-# -----------------------------------------------------------------------------
 
 
 def parse_atoms(pdb_path: Path) -> dict[tuple[str, int, str], np.ndarray]:
@@ -129,10 +121,6 @@ def met_ligand_plane_projection(
         "fe_s_distance": float(np.linalg.norm(sd - fe)),
         "his_fe_distance": float(np.linalg.norm(his_ne2 - fe)),
     }
-
-# -----------------------------------------------------------------------------
-# OUTPUT / COMMAND-LINE ENTRY POINT
-# -----------------------------------------------------------------------------
 
 
 def write_report(model: str, result: dict[str, np.ndarray | float]) -> Path:

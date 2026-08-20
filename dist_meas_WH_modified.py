@@ -2,10 +2,6 @@ import mdtraj as md
 import numpy as np
 import matplotlib.pyplot as plt
 
-# -----------------------------------------------------------------------------
-# INPUT CONFIGURATION
-# -----------------------------------------------------------------------------
-
 # Edit these to your specific atoms (MDTraj selection syntax)
 # Examples:
 #   'resSeq 35 and name CA'      (PDB residue number 35 alpha carbon)
@@ -23,10 +19,6 @@ datasets = [
 
 results = {}
 output_file = 'newDist_modified.txt'
-
-# -----------------------------------------------------------------------------
-# CALCULATION AND PER-DATASET REPORTING
-# -----------------------------------------------------------------------------
 
 with open(output_file, 'w', encoding='utf-8') as f:
     f.write('Distance Analysis (20-60 ns)\n')
@@ -150,10 +142,6 @@ for dataset_name, dcd_path, top_path, atom_query_1, atom_query_2, atom_query_3, 
         f"Distance 2: {stats13['mean']:.3f} +- {stats13['std']:.3f} Å | "
         f"Distance 3: {stats14['mean']:.3f} +- {stats14['std']:.3f} Å"
     )
-
-# -----------------------------------------------------------------------------
-# OUTPUT PLOTS
-# -----------------------------------------------------------------------------
 
 # Plot all datasets
 if results:

@@ -9,10 +9,6 @@ import numpy as np
 ROOT = Path(r"E:\Desktop\research\MD\slit")
 WORK_DIR = Path(__file__).resolve().parent
 
-# -----------------------------------------------------------------------------
-# INPUT CONFIGURATION
-# -----------------------------------------------------------------------------
-
 MODES = {
     "2way": {
         "output_png": "rmsd_sasa_2way.png",
@@ -43,10 +39,6 @@ MODES = {
         ],
     },
 }
-
-# -----------------------------------------------------------------------------
-# CALCULATION AND PLOTTING
-# -----------------------------------------------------------------------------
 
 
 def load_curve(path: Path) -> tuple[np.ndarray, np.ndarray]:
@@ -104,10 +96,6 @@ def plot_mode(mode: str) -> Path:
     plt.savefig(output_path, dpi=300, bbox_inches="tight")
     plt.close(fig)
     return output_path
-
-# -----------------------------------------------------------------------------
-# OUTPUT / COMMAND-LINE ENTRY POINT
-# -----------------------------------------------------------------------------
 
 
 def main() -> None:

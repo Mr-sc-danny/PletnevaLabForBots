@@ -11,10 +11,6 @@ import seaborn as sns
 ROOT = Path(r"E:\Desktop\research\MD\slit")
 WORK_DIR = Path(__file__).resolve().parent
 
-# -----------------------------------------------------------------------------
-# INPUT CONFIGURATION
-# -----------------------------------------------------------------------------
-
 FOCUS_LABELS = [
     "",
     "35",
@@ -275,10 +271,6 @@ DATASETS = {
 
 FOCUS_SLICE = slice(33, 56)
 
-# -----------------------------------------------------------------------------
-# CALCULATION AND PLOTTING
-# -----------------------------------------------------------------------------
-
 
 def plot_heatmap(matrix: np.ndarray, labels: list[str], output_path: Path, title: str | None = None) -> None:
     plt.clf()
@@ -337,10 +329,6 @@ def compute_contact_map(dataset: str) -> Path:
     np.savetxt(dist_path, final_distance, fmt="%1.3f")
     plot_heatmap(final_map, config["labels"], WORK_DIR / f"contact_map_{dataset}.png")
     return map_path
-
-# -----------------------------------------------------------------------------
-# OUTPUT / COMMAND-LINE ENTRY POINT
-# -----------------------------------------------------------------------------
 
 
 def plot_focus_map(dataset: str, map_path: Path | None = None) -> None:

@@ -1,17 +1,21 @@
-﻿# PletnevaLabForBots Python Scripts
+﻿# PletnevaLab Python and Notebook Archive
 
-This repository contains Python scripts copied directly from the organized Slit research archive.
+This repository contains the Python scripts and Jupyter notebook files copied from the PletnevaLab research repository.
 
 ## Contents
 
-Every `.py` file is stored directly in the repository root. Each script has a companion `<script_filename>_readme.md` file describing its purpose, inputs, calculation, usage, and outputs.
+Every Python and notebook file is stored directly in the repository root. Each file has a companion `<filename>_readme.md` describing its purpose, inputs, calculation, usage, and outputs.
 
-## Running
+## Sources
 
-Use the repository environment that provides the dependencies named by each script, especially MDTraj, NumPy, Matplotlib, and Seaborn where applicable. Scripts with command-line options document their examples in their companion readmes.
+- `Slit_temp`: organized molecular-dynamics, CAVER, contact-map, EPR, heme, WH, frame-extraction, and RMSD/SASA workflows.
+- `Agilent_UV_Extractor`: ChemStation UV-Vis binary spectrum extraction.
+- `Echem_process`: electrochemical UV-Vis fitting and combined plotting.
 
-## Organization
+## Dependencies
 
-Non-CAVER analysis scripts are organized internally into input, calculation, and output sections. CAVER-generated scripts are copied unchanged because their generated structure is part of the CAVER workflow.
+Depending on the workflow, install the documented scientific Python dependencies such as NumPy, pandas, Matplotlib, openpyxl, lmfit, MDTraj, and Seaborn. CAVER/PyMOL scripts require their external visualization environment.
 
-Documentation follows the section-oriented style used by established Python project readmes such as https://github.com/pandas-dev/pandas.
+## Documentation reference
+
+README organization follows the practical purpose, usage, input, calculation, and output style used by established Python repositories such as https://github.com/pandas-dev/pandas.

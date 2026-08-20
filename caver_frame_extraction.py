@@ -8,10 +8,6 @@ import mdtraj as md
 ROOT = Path(r"E:\Desktop\research\MD\slit")
 WORK_DIR = Path(__file__).resolve().parent
 
-# -----------------------------------------------------------------------------
-# INPUT CONFIGURATION
-# -----------------------------------------------------------------------------
-
 CONFIGS = {
     "2042": {
         "dcd_path": ROOT / "2042" / "2042_all.dcd",
@@ -27,10 +23,6 @@ CONFIGS = {
 
 START_FRAME = 1000
 END_FRAME = 3000
-
-# -----------------------------------------------------------------------------
-# CALCULATION AND FRAME EXTRACTION
-# -----------------------------------------------------------------------------
 
 
 def extract_frames(model: str) -> Path:
@@ -79,10 +71,6 @@ def extract_frames(model: str) -> Path:
             break
 
     return output_dir
-
-# -----------------------------------------------------------------------------
-# OUTPUT / COMMAND-LINE ENTRY POINT
-# -----------------------------------------------------------------------------
 
 
 def main() -> None:

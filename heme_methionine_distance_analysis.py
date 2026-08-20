@@ -9,10 +9,6 @@ import numpy as np
 ROOT = Path(r"E:\Desktop\research\MD\slit")
 WORK_DIR = Path(__file__).resolve().parent
 
-# -----------------------------------------------------------------------------
-# INPUT CONFIGURATION
-# -----------------------------------------------------------------------------
-
 CONFIGS = {
     "2042": {
         "dcd_path": ROOT / "2042" / "2042_all.dcd",
@@ -35,10 +31,6 @@ CONFIGS = {
 }
 
 DT_NS = 0.02
-
-# -----------------------------------------------------------------------------
-# CALCULATION
-# -----------------------------------------------------------------------------
 
 
 def run_analysis(model: str) -> Path:
@@ -108,10 +100,6 @@ def run_analysis(model: str) -> Path:
             handle.write(f"  Std deviation: {np.std(angles_filtered[:, index]):.3f} deg\n\n")
 
     return output_path
-
-# -----------------------------------------------------------------------------
-# OUTPUT / COMMAND-LINE ENTRY POINT
-# -----------------------------------------------------------------------------
 
 
 def main() -> None:

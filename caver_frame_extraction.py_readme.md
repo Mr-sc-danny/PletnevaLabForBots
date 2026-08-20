@@ -1,11 +1,12 @@
 ﻿# caver_frame_extraction.py
 
-Source: groups\frame_extraction\caver_frame_extraction.py
+Source: Slit_temp\frame_extraction\caver_frame_extraction.py
 
-Purpose: Extracts frames 1000-3000 from the 2042 or 2042f_new trajectories and keeps protein plus heme atoms for CAVER input.
-Usage: python caver_frame_extraction.py --model 2042
-Inputs: Model-specific DCD and PDB paths in CONFIGS; START_FRAME and END_FRAME define the extraction range.
-Calculation: Validates files and frame count, loads the topology, selects protein/heme atoms, streams trajectory chunks, and writes each selected frame.
-Output: Creates numbered PDB files in the configured caver_inputs_<model>_with_heme_1000_3000 directory.
+Purpose: Extracts trajectory frames 1000-3000 and keeps protein plus heme atoms for CAVER input.
+Usage: `python caver_frame_extraction.py --model 2042` or `--model 2042f_new`.
+Inputs: Model-specific DCD/PDB paths in `CONFIGS`; frame bounds are `START_FRAME` and `END_FRAME`.
+Calculation: Validates files and frame count, selects protein/heme atoms, streams chunks, and saves each selected frame.
+Output: Numbered PDB files in `caver_inputs_<model>_with_heme_1000_3000`.
 
-The script is organized into explicit input, calculation, and output sections where applicable.
+The Python scripts are organized into explicit input, calculation, and output sections where applicable.
+Documentation follows the section-oriented style used by established Python repositories such as https://github.com/pandas-dev/pandas.
