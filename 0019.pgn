@@ -1,0 +1,62 @@
+package require psfgen
+package require solvate
+package require autoionize
+
+topology top_all36_prot.rtf
+topology top_water_ions.str
+topology top_all36_prot_heme_c.str
+pdbalias atom ILE CD1 CD
+pdbalias residue HIS HSD
+pdbalias residue HEC HEMO
+pdbalias residue HOH TIP3
+pdbalias atom TIP3 O OH2
+
+#patch Oxidized Heme
+segment U {pdb U.pdb}
+segment X {pdb heme.pdb}
+
+
+#check id
+patch HOCY U:12 U:15 U:16 U:70 X:1
+
+coordpdb U.pdb U
+coordpdb heme.pdb X
+guesscoord
+
+
+writepdb patched.pdb
+writepsf patched.psf
+
+mol new patched.psf type psf waitfor all
+mol addfile patched.pdb type pdb waitfor all
+
+
+#add 12 A water box
+solvate patched.psf patched.pdb -t 12 -o wb
+
+#autoionize with .15 M NaCl
+autoionize -psf wb.psf -pdb wb.pdb -o ionized -seg ION -sc 0.15 -cation SOD -anion CLA -from 5 -between 5
+
+# File paths
+set pdbfile "ionized.pdb"
+set outfile [open "box_information.txt" "w"]
+
+# Extract CRYST1 line from PDB file and write to output file
+set filehandle [open $pdbfile r]
+while {[gets $filehandle line] >= 0} {
+    if {[string match "CRYST1*" $line]} {
+        puts $outfile $line
+        break
+    }
+}
+close $filehandle
+
+# Measure center of geometry from loaded molecule
+set sel [atomselect top all]
+set center [measure center $sel]
+$sel delete
+
+#write center
+puts $outfile $center
+# Close output file
+close $outfile
